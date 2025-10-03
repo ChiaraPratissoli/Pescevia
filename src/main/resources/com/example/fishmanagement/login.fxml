@@ -1,14 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.fishmanagement.Login"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fishmanagement.controller.LoginController">
+   <children>
+      <VBox layoutX="250.0" layoutY="100.0" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <TextField fx:id="txtUsername" text="Username">
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TextField>
+            <TextField fx:id="txtPassword" text="Password">
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </TextField>
+            <Button mnemonicParsing="false" onMouseClicked="#accedi" prefHeight="26.0" prefWidth="102.0" text="ACCEDI">
+               <VBox.margin>
+                  <Insets top="90.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Britannic Bold" size="15.0" />
+               </font>
+            </Button>
+            <Label fx:id="label" prefHeight="18.0" prefWidth="99.0" textAlignment="CENTER" textFill="RED">
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Label alignment="CENTER" layoutX="227.0" layoutY="37.0" text="LOGIN" textAlignment="CENTER">
+         <font>
+            <Font name="Britannic Bold" size="54.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>
