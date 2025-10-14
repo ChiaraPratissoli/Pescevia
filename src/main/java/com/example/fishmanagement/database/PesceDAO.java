@@ -38,5 +38,21 @@ public class PesceDAO {
         return pesci;
     }
 
+    public boolean buy(int pesceId, int quantitaAcquistata){
+        String sql = "UPDATE pesci SET quantita = quantita - ? WHERE id = ? AND quantita >= ?";
+
+        try(Connection conn = Database.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(sql)){
+
+            pstmt.setInt(1, quantitaAcquistata);
+            pstmt.setInt(2,pesceId);
+            pstmt.setInt(3, quantitaAcquistata);
+
+            return pstmt.executeUpdate() > 0;
+        } catch (SQLException e){
+            LOGGER.log(Level.SEVERE, "Errore durante l'acquisto del pesce con id: " + pesceId, e);
+            return false;
+        }
+    }
 
 }
