@@ -38,21 +38,34 @@ public class PesceDAO {
         return pesci;
     }
 
-    public boolean buy(int pesceId, int quantitaAcquistata){
+    public boolean buy(Pesce pesce){
         String sql = "UPDATE pesci SET quantita = quantita - ? WHERE id = ? AND quantita >= ?";
 
         try(Connection conn = Database.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql)){
 
-            pstmt.setInt(1, quantitaAcquistata);
-            pstmt.setInt(2,pesceId);
-            pstmt.setInt(3, quantitaAcquistata);
+            pstmt.setDouble(1, pesce.getQuantita());
+            pstmt.setInt(2,pesce.getId());
+            pstmt.setDouble(3, pesce.getQuantita());
 
             return pstmt.executeUpdate() > 0;
         } catch (SQLException e){
-            LOGGER.log(Level.SEVERE, "Errore durante l'acquisto del pesce con id: " + pesceId, e);
+            LOGGER.log(Level.SEVERE, "Errore durante l'acquisto del pesce con id: " + pesce.getId(), e);
             return false;
         }
     }
 
+    public void restoreQuantity(Pesce pesce) {
+        String sql = "UPDATE pesci SET quantita = quantita + ? WHERE id = ?";
+        try (Connection conn = Database.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setDouble(1, pesce.getQuantita());
+            pstmt.setInt(2, pesce.getId());
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            LOGGER.log(Level.SEVERE, "Errore durante il ripristino della quantità", e);
+        }
+    }
 }

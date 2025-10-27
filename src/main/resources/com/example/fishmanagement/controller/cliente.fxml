@@ -29,7 +29,7 @@
                         </TableView>
                         <Label layoutX="14.0" layoutY="20.0" text="Quantità da comprare:" />
                         <TextField fx:id="txtQuantita" layoutX="150.0" layoutY="16.0" />
-                        <Button fx:id="btnAggiungi" layoutX="372.0" layoutY="16.0" mnemonicParsing="false" text="Aggiungi al carrello" />
+                        <Button layoutX="372.0" layoutY="16.0" mnemonicParsing="false" onMouseClicked="#aggiungiAlCarrello" text="Aggiungi al carrello" />
                      </children>
                   </AnchorPane>
             </content>
@@ -48,8 +48,8 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <Button fx:id="btnCompletaOrdine" layoutX="481.0" layoutY="331.0" mnemonicParsing="false" text="Completa ordine" />
-                        <Button fx:id="btnRimuovi" layoutX="10.0" layoutY="331.0" mnemonicParsing="false" text="Rimuovi selezionato" />
+                        <Button layoutX="481.0" layoutY="331.0" mnemonicParsing="false" onMouseClicked="#completaOrdine" text="Completa ordine" />
+                        <Button layoutX="10.0" layoutY="331.0" mnemonicParsing="false" onMouseClicked="#rimuoviDalCarrello" text="Rimuovi selezionato" />
                      </children>
                   </AnchorPane>
             </content>

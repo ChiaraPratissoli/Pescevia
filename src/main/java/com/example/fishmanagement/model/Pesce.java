@@ -4,9 +4,9 @@ public class Pesce {
     private int id;
     private String nome;
     private double prezzo;
-    private int quantita;
+    private double quantita;
 
-    public Pesce(int id, String nome, double prezzo, int quantita) {
+    public Pesce(int id, String nome, double prezzo, double quantita) {
         this.id = id;
         this.nome = nome;
         this.prezzo = prezzo;
@@ -25,7 +25,7 @@ public class Pesce {
         return prezzo;
     }
 
-    public int getQuantita() {
+    public double getQuantita() {
         return quantita;
     }
 
@@ -41,7 +41,7 @@ public class Pesce {
         this.prezzo = prezzo;
     }
 
-    public void setQuantita(int quantita) {
+    public void setQuantita(double quantita) {
         this.quantita = quantita;
     }
 
