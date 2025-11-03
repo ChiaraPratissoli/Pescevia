@@ -21,14 +21,14 @@
                           <columns>
                             <TableColumn fx:id="colNome" prefWidth="75.0" text="Nome" />
                             <TableColumn fx:id="colPrezzo" prefWidth="75.0" text="Prezzo" />
-                              <TableColumn fx:id="colDisponibilita" prefWidth="75.0" text="Disponibilità" />
+                              <TableColumn fx:id="colDisponibilita" prefWidth="75.0" text="Quantità (Kg)" />
                           </columns>
                            <columnResizePolicy>
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <Label layoutX="14.0" layoutY="20.0" text="Quantità da comprare:" />
-                        <TextField fx:id="txtQuantita" layoutX="150.0" layoutY="16.0" />
+                        <Label layoutX="14.0" layoutY="20.0" text="Quantità da comprare (Kg):" />
+                        <TextField fx:id="txtQuantita" layoutX="164.0" layoutY="16.0" />
                         <Button layoutX="372.0" layoutY="16.0" mnemonicParsing="false" onMouseClicked="#aggiungiAlCarrello" text="Aggiungi al carrello" />
                      </children>
                   </AnchorPane>

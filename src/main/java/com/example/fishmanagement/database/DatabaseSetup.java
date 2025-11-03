@@ -27,7 +27,7 @@ public class DatabaseSetup {
 
             String sqlCreatePesci = "CREATE TABLE IF NOT EXISTS pesci (" +
                     "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                    "nome TEXT NOT NULL," +
+                    "nome TEXT NOT NULL UNIQUE," +
                     "prezzo REAL NOT NULL," +
                     "quantita REAL NOT NULL)";
             stmt.execute(sqlCreatePesci);

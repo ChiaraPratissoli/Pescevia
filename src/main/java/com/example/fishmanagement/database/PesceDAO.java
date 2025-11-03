@@ -27,7 +27,7 @@ public class PesceDAO {
                         rs.getInt("id"),
                         rs.getString("nome"),
                         rs.getDouble("prezzo"),
-                        rs.getInt("quantita")
+                        rs.getDouble("quantita")
                 );
                 pesci.add(pesce);
             }
@@ -44,11 +44,17 @@ public class PesceDAO {
         try(Connection conn = Database.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql)){
 
+            conn.setAutoCommit(false);
+
             pstmt.setDouble(1, pesce.getQuantita());
             pstmt.setInt(2,pesce.getId());
             pstmt.setDouble(3, pesce.getQuantita());
 
-            return pstmt.executeUpdate() > 0;
+            int rows = pstmt.executeUpdate();
+            conn.commit();
+
+            return rows > 0;
+
         } catch (SQLException e){
             LOGGER.log(Level.SEVERE, "Errore durante l'acquisto del pesce con id: " + pesce.getId(), e);
             return false;
