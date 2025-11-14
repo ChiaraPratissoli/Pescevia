@@ -38,6 +38,57 @@ public class PesceDAO {
         return pesci;
     }
 
+    public boolean addPesce(Pesce pesce){
+        String sql = "INSERT INTO pesci (nome, prezzo, quantita) VALUES (?, ?, ?)";
+
+        try(Connection conn = Database.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(sql)){
+
+            pstmt.setString(1, pesce.getNome());
+            pstmt.setDouble(2, pesce.getPrezzo());
+            pstmt.setDouble(3, pesce.getQuantita());
+
+            return pstmt.executeUpdate() > 0;
+        }catch (SQLException e){
+            LOGGER.log(Level.SEVERE, "Errore nell'aggiunta del pesce", e);
+            return false;
+        }
+    }
+
+    public boolean update(Pesce pesce){
+        String sql = "UPDATE pesci SET nome = ?, PREZZO = ?, QUANTITA = ? WHERE ID = ?";
+
+        try(Connection conn = Database.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(sql)){
+
+            pstmt.setString(1, pesce.getNome());
+            pstmt.setDouble(2, pesce.getPrezzo());
+            pstmt.setDouble(3, pesce.getQuantita());
+            pstmt.setInt(4, pesce.getId());
+
+            return pstmt.executeUpdate() > 0;
+        }catch (SQLException e){
+            LOGGER.log(Level.SEVERE, "Errore nell'aggiornamento del pesce", e);
+            return false;
+        }
+    }
+
+    public boolean delete(int id){
+        String sql = "DELETE FROM pesci WHERE id = ?";
+
+        try(Connection conn = Database.getConnection();
+            PreparedStatement pstmt = conn.prepareStatement(sql)){
+
+            pstmt.setInt(1, id);
+
+            return pstmt.executeUpdate() > 0;
+
+        } catch (SQLException e){
+            LOGGER.log(Level.SEVERE, "Errore nell'eliminazione del pesce", e);
+            return false;
+        }
+    }
+
     public boolean buy(Pesce pesce){
         String sql = "UPDATE pesci SET quantita = quantita - ? WHERE id = ? AND quantita >= ?";
 

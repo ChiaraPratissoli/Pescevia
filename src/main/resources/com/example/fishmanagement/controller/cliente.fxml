@@ -20,7 +20,7 @@
                         <TableView fx:id="tablePesci" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0">
                           <columns>
                             <TableColumn fx:id="colNome" prefWidth="75.0" text="Nome" />
-                            <TableColumn fx:id="colPrezzo" prefWidth="75.0" text="Prezzo" />
+                            <TableColumn fx:id="colPrezzo" prefWidth="75.0" text="Prezzo al Kg" />
                               <TableColumn fx:id="colDisponibilita" prefWidth="75.0" text="Quantità (Kg)" />
                           </columns>
                            <columnResizePolicy>
@@ -41,7 +41,7 @@
                         <TableView fx:id="tableCarrello" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
                           <columns>
                             <TableColumn fx:id="colCarrelloNome" prefWidth="75.0" text="Nome" />
-                            <TableColumn fx:id="colCarrelloPrezzo" prefWidth="75.0" text="Prezzo" />
+                            <TableColumn fx:id="colCarrelloPrezzo" prefWidth="75.0" text="Prezzo al Kg" />
                               <TableColumn fx:id="colCarrelloQuantita" prefWidth="75.0" text="Quantità" />
                           </columns>
                            <columnResizePolicy>
