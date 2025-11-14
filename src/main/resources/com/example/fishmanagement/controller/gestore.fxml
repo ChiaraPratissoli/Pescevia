@@ -11,25 +11,19 @@
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fishmanagement.controller.GestoreController">
-   <children>
       <VBox prefHeight="200.0" prefWidth="100.0" spacing="8.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" VBox.vgrow="NEVER">
-               <children>
                   <Label text="Nome" HBox.hgrow="NEVER" />
                   <TextField fx:id="txtNome" HBox.hgrow="ALWAYS" />
                   <Label text="Prezzo (al Kg)" HBox.hgrow="NEVER" />
                   <TextField fx:id="txtPrezzo" HBox.hgrow="ALWAYS" />
-               </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" VBox.vgrow="NEVER">
-               <children>
                   <Label text="Quantità (al Kg)" HBox.hgrow="NEVER" />
                   <TextField fx:id="txtQuantita" HBox.hgrow="ALWAYS" />
                   <Button maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#aggiungiPesce" prefWidth="90.0" text="Aggiungi" />
-                  <Button maxWidth="-Infinity" mnemonicParsing="false" prefWidth="90.0" text="Aggiorna" />
-                  <Button maxWidth="-Infinity" mnemonicParsing="false" prefWidth="90.0" text="Elimina" />
-               </children>
+                  <Button maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#modificaPesce" prefWidth="90.0" text="Aggiorna" />
+                  <Button maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#eliminaPesce" prefWidth="90.0" text="Elimina" />
             </HBox>
             <TableView fx:id="tablePesci" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="400.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
               <columns>
@@ -38,10 +32,8 @@
                 <TableColumn fx:id="colQuantita" prefWidth="122.4000244140625" text="Quantità (Kg)" />
               </columns>
             </TableView>
-         </children>
          <padding>
             <Insets top="10.0" />
          </padding>
       </VBox>
-   </children>
 </AnchorPane>
