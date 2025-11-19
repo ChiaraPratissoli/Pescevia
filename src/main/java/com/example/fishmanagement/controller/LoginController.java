@@ -54,6 +54,7 @@ public class LoginController {
         Stage stage = new Stage();
         stage.setTitle(titolo);
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
 
         Stage currentStage = (Stage) txtUsername.getScene().getWindow();
